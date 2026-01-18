@@ -13,6 +13,10 @@ Empire Wars is a month-long persistent multiplayer war where three factions comp
 
 See `Empire_Wars_GDD.md` for the full game design document.
 
+## Inspiration
+
+This project is inspired by games like [Foxhole](https://www.foxholegame.com/), [Anvil Empire](https://www.anvilempires.com/), and [Eco](https://play.eco/).
+
 ## Requirements
 
 - Java 24+
@@ -36,7 +40,6 @@ src/main/kotlin/gravitygames/
 ├── Empire.kt                 # Main plugin entry point
 ├── EmpireData.kt             # Data management
 ├── Factions.kt               # Faction system
-├── chat/                     # Chat formatting
 ├── commands/                 # Player commands (factions, families)
 ├── component/                # Entity components
 ├── listeners/                # Event listeners
