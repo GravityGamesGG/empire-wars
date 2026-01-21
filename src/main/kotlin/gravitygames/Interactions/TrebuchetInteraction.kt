@@ -1,25 +1,27 @@
-package gravitygames
+package gravitygames.Interactions
 
 import com.hypixel.hytale.codec.builder.BuilderCodec
 import com.hypixel.hytale.protocol.InteractionType
 import com.hypixel.hytale.server.core.entity.InteractionContext
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction
-import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInteraction
+import gravitygames.Empire
 
-class MyInteraction : SimpleInstantInteraction()
+class TrebuchetInteraction : SimpleInstantInteraction()
 {
     companion object
     {
-        val CODEC: BuilderCodec<MyInteraction> = BuilderCodec.builder(
-            MyInteraction::class.java, ::MyInteraction, SimpleInstantInteraction.CODEC
+        val CODEC = BuilderCodec.builder(
+            TrebuchetInteraction::class.java,
+            ::TrebuchetInteraction,
+            SimpleInstantInteraction.CODEC
         ).build()
     }
 
     override fun firstRun(
-        p0: InteractionType, p1: InteractionContext, p2: CooldownHandler
+        var1: InteractionType, var2: InteractionContext, var3: CooldownHandler
     )
     {
-        Empire.Logger.atInfo().log("Interaction")
+        Empire.Logger.atInfo().log("Trebuchet")
     }
 }
