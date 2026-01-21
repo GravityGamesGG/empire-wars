@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "2.2.21"
+    kotlin("jvm") version "2.3.0"
     idea
     // https://github.com/GhostRider584/hytale-gradle-plugin
-    id("fr.smolder.hytale.dev") version "0.0.8"
+    id("fr.smolder.hytale.dev") version "0.0.10"
 }
 
 version = "1.0-SNAPSHOT"
@@ -21,6 +21,16 @@ kotlin {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+val copyResources by tasks.registering(Sync::class) {
+    from(layout.buildDirectory.dir("resources/main"))
+    into(layout.projectDirectory.dir("src/main/resources"))
+    exclude("manifest.json")
+}
+
+tasks.named("runServer") {
+    finalizedBy(copyResources)
 }
 
 hytale {
