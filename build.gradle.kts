@@ -1,8 +1,10 @@
+import fr.smolder.hytale.gradle.Patchline
+
 plugins {
     kotlin("jvm") version "2.3.0"
     idea
     // https://github.com/GhostRider584/hytale-gradle-plugin
-    id("fr.smolder.hytale.dev") version "0.0.10"
+    id("fr.smolder.hytale.dev") version "0.1.0"
 }
 
 version = "1.0-SNAPSHOT"
@@ -38,7 +40,7 @@ hytale {
     // hytalePath.set("...")
 
     // Optional: patch line (defaults to "release")
-    patchLine.set("release")
+    patchLine.set(Patchline.RELEASE)
 
     // Optional: game version (defaults to "latest")
     gameVersion.set("latest")
