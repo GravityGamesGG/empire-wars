@@ -28,10 +28,38 @@
     "DamageEntities": true,
     "DamageBlocks": true,
     "BlockDamageRadius": 10,
-    "BlockDropChance": 1,
+    "BlockDropChance": 0.2,
     "EntityDamage": 40,
     "EntityDamageRadius": 5,
     "EntityDamageFalloff": 0.5,
+    "ItemTool": {
+      "Specs": [
+        {
+          "Power": 3,
+          "GatherType": "SoftBlocks"
+        },
+        {
+          "Power": 3,
+          "GatherType": "Soils"
+        },
+        {
+          "Power": 3,
+          "GatherType": "Woods"
+        },
+        {
+          "Power": 3,
+          "GatherType": "Rocks"
+        },
+        {
+          "Power": 3,
+          "GatherType": "Benches"
+        },
+        {
+          "Power": 0.5,
+          "GatherType": "VolcanicRocks"
+        }
+      ]
+    },
     "Knockback": {
       "Type": "Point",
       "VelocityConfig": {
