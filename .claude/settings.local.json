@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__hytale-rag__search_hytale_code",
+      "mcp__hytale-rag__search_hytale_docs",
+      "mcp__hytale-rag__search_hytale_gamedata"
+    ]
+  }
+}
