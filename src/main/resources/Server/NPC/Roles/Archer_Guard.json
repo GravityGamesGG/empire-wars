@@ -1,0 +1,112 @@
+{
+  "Type": "Generic",
+  "Appearance": "Mannequin",
+  "HotbarItems": [
+    "Weapon_Shortbow_Crude"
+  ],
+  "MaxHealth": {
+    "Compute": "MaxHealth"
+  },
+  "Parameters": {
+    "MaxHealth": {
+      "Value": 100,
+      "Description": "Max health for the NPC"
+    },
+    "AttackRange": {
+      "Value": 25,
+      "Description": "Range at which the guard will attack hostile targets"
+    },
+    "DetectionRange": {
+      "Value": 30,
+      "Description": "Range at which the guard detects hostile targets"
+    }
+  },
+  "MotionControllerList": [
+    {
+      "Type": "Walk",
+      "MaxWalkSpeed": 4,
+      "Gravity": 10,
+      "MaxFallSpeed": 20,
+      "Acceleration": 10
+    }
+  ],
+  "Instructions": [
+    {
+      "$Comment": "Aim at hostile targets",
+      "Continue": true,
+      "Sensor": {
+        "Type": "Mob",
+        "Range": {
+          "Compute": "DetectionRange"
+        },
+        "GetPlayers": true,
+        "GetNPCs": false,
+        "LockOnTarget": true,
+        "Filters": [
+          {
+            "Type": "Attitude",
+            "Attitudes": [
+              "Hostile"
+            ]
+          },
+          {
+            "Type": "LineOfSight"
+          }
+        ]
+      },
+      "HeadMotion": {
+        "Type": "Aim",
+        "Spread": 0.5,
+        "HitProbability": 1,
+        "Deflection": true
+      },
+      "Actions": [
+        {
+          "Type": "Log",
+          "Message": "Aiming at target"
+        }
+      ]
+    },
+    {
+      "$Comment": "Attack hostile targets in range with bow",
+      "Sensor": {
+        "Type": "Target",
+        "Range": {
+          "Compute": "AttackRange"
+        },
+        "Filters": [
+          {
+            "Type": "LineOfSight"
+          }
+        ]
+      },
+      "Actions": [
+        {
+          "Type": "Attack",
+          "Attack": "Skeleton_Archer_Bow_Shoot",
+          "BallisticMode": "Short",
+          "AimingTimeRange": [
+            2,
+            3
+          ],
+          "LineOfSight": true,
+          "AvoidFriendlyFire": true,
+          "AttackPauseRange": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "Idle when no hostile targets",
+      "Sensor": {
+        "Type": "Any"
+      },
+      "BodyMotion": {
+        "Type": "Nothing"
+      }
+    }
+  ],
+  "NameTranslationKey": "server.npcRoles.Archer_Guard.name"
+}

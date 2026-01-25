@@ -28,7 +28,6 @@ tasks.test {
 val copyResources by tasks.registering(Sync::class) {
     from(layout.buildDirectory.dir("resources/main"))
     into(layout.projectDirectory.dir("src/main/resources"))
-    exclude("manifest.json")
 }
 
 tasks.named("runServer") {
@@ -46,7 +45,7 @@ hytale {
     gameVersion.set("latest")
 
     // Auto-update manifest.json during build? (defaults to true)
-    autoUpdateManifest.set(true)
+    autoUpdateManifest.set(false)
 
     // Memory configuration
     minMemory.set("2G")
@@ -65,33 +64,4 @@ hytale {
 
     // Automatically attach decompiled sources to IDE (defaults to true)
     includeDecompiledSources.set(true)
-
-    manifest {
-        group = "GravityGames"
-        name = "Empire"
-        version = project.version.toString() // Auto-syncs with project version
-        description = "A persistent war server pack"
-
-        // Add authors
-        author {
-            name = "JohnyBro"
-            email = "johnydu10@pm.me"
-            url = "https://your-website.com"
-        }
-
-        // Or simply by name
-        //author("AnotherContributor")
-
-        website = "https://my-pack.com"
-        serverVersion = "*"
-
-        // Dependencies
-        // dependency("RequiredPack", "1.0.0")
-        // optionalDependency("NiceToHavePack", "*")
-
-        // Plugin-specific
-        main = "gravitygames.Empire"
-        includesAssetPack = true
-        disabledByDefault = false
-    }
 }

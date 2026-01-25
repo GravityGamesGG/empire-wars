@@ -1,0 +1,6 @@
+{
+  "$Comment": "Root interaction for summoning Guard Archer. Uses the SpawnNPC chain with InteractionVars override.",
+  "Interactions": [
+    "Spawn_Guard_Archer"
+  ]
+}

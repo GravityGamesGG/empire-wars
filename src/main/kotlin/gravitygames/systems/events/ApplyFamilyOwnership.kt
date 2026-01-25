@@ -12,7 +12,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.Universe
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
-import gravitygames.component.FamilyOwnershipBlockComponent
+import gravitygames.component.FamilyBlockComponent
 import gravitygames.registries.EmpireComponentRegistry
 
 class ApplyFamilyOwnership : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(UseBlockEvent.Pre::class.java)
@@ -28,7 +28,7 @@ class ApplyFamilyOwnership : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(U
         val playerEntityRef = archetypeStore.getReferenceTo(entityIndex)
         val playerRef = entityStore.getComponent(playerEntityRef, PlayerRef.getComponentType()) ?: return
         val familyOwnership = entityStore.getComponent(
-            playerEntityRef, EmpireComponentRegistry.familyOwnershipEntityComponentType
+            playerEntityRef, EmpireComponentRegistry.familyEntityComponentType
         )
         val owner = familyOwnership?.owner ?: return
 
@@ -42,14 +42,14 @@ class ApplyFamilyOwnership : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(U
             holder = ChunkStore.REGISTRY.newHolder()
         }
 
-        if (holder.getComponent(EmpireComponentRegistry.familyOwnershipBlockComponentType) != null)
+        if (holder.getComponent(EmpireComponentRegistry.familyBlockComponentType) != null)
         {
             playerRef.sendMessage(Message.raw("This object is already owned by another family"))
             return
         }
 
         holder.addComponent(
-            EmpireComponentRegistry.familyOwnershipBlockComponentType, FamilyOwnershipBlockComponent(owner = owner)
+            EmpireComponentRegistry.familyBlockComponentType, FamilyBlockComponent(owner = owner)
         )
 
         chunk.setState(pos.x, pos.y, pos.z, holder)
@@ -64,7 +64,7 @@ class ApplyFamilyOwnership : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(U
         return Query.and(
             PlayerRef.getComponentType(),
             EmpireComponentRegistry.setupFamilyOwnershipEntityComponentType,
-            EmpireComponentRegistry.familyOwnershipEntityComponentType
+            EmpireComponentRegistry.familyEntityComponentType
         )
     }
 }

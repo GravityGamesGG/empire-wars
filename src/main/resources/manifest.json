@@ -1,0 +1,24 @@
+{
+    "Group": "GravityGames",
+    "Name": "Empire",
+    "Version": "1.0-SNAPSHOT",
+    "Description": "A persistent war server pack",
+    "Authors": [
+        {
+            "Name": "JohnyBro",
+            "Email": "johnydu10@pm.me",
+            "Url": "https://your-website.com"
+        }
+    ],
+    "ServerVersion": "*",
+    "Website": "https://my-pack.com",
+    "Dependencies": {
+        "Hytale:NPC": "*"
+    },
+    "OptionalDependencies": {
+        
+    },
+    "DisabledByDefault": false,
+    "Main": "gravitygames.Empire",
+    "IncludesAssetPack": true
+}

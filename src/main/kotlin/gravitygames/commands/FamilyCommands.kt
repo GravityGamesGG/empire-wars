@@ -13,7 +13,7 @@ import com.hypixel.hytale.server.core.universe.world.World
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
 import gravitygames.FamilyData
 import gravitygames.FamilyStore
-import gravitygames.component.FamilyOwnershipEntityComponent
+import gravitygames.component.FamilyEntityComponent
 import gravitygames.component.triggers.SetupFamilyOwnershipComponent
 import gravitygames.registries.EmpireComponentRegistry
 import java.util.concurrent.CompletableFuture
@@ -48,8 +48,8 @@ class FamilyCreateCommand : AbstractAsyncPlayerCommand("create", "Create a new f
         }
 
         FamilyStore[familyName] = FamilyData(familyName).apply { members.add(playerRef.uuid) }
-        EmpireComponentRegistry.familyOwnershipEntityComponentType?.let {
-            val newComponent = FamilyOwnershipEntityComponent(familyName)
+        EmpireComponentRegistry.familyEntityComponentType?.let {
+            val newComponent = FamilyEntityComponent(familyName)
             store.addComponent(ref, it, newComponent)
         }
         ctx.sendMessage(Message.raw("Family $familyName created!"))
@@ -97,7 +97,7 @@ class FamilyGetOwnershipCommmand :
         ctx: CommandContext, store: Store<EntityStore?>, ref: Ref<EntityStore?>, playerRef: PlayerRef, world: World
     ): CompletableFuture<Void?>
     {
-        EmpireComponentRegistry.familyOwnershipEntityComponentType?.let {
+        EmpireComponentRegistry.familyEntityComponentType?.let {
             val playerFamilyComponent = store.getComponent(ref, it)
 
             if (playerFamilyComponent == null)

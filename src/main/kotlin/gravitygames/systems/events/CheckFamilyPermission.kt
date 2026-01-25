@@ -13,7 +13,7 @@ import com.hypixel.hytale.server.core.event.events.ecs.UseBlockEvent
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.world.World
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
-import gravitygames.component.FamilyOwnershipBlockComponent
+import gravitygames.component.FamilyBlockComponent
 import gravitygames.registries.EmpireComponentRegistry
 
 class CheckFamilyPermission : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(UseBlockEvent.Pre::class.java)
@@ -33,7 +33,7 @@ class CheckFamilyPermission : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(
         val world = playerComponent.world ?: return
         val blockFamily = getFamilyOwnershipBlockComponent(world, event.targetBlock)?.owner ?: return
         val playerFamily = entityStore.getComponent(
-            playerEntityRef, EmpireComponentRegistry.familyOwnershipEntityComponentType
+            playerEntityRef, EmpireComponentRegistry.familyEntityComponentType
         )?.owner
 
         if (playerFamily == null || playerFamily != blockFamily)
@@ -43,11 +43,11 @@ class CheckFamilyPermission : EntityEventSystem<EntityStore, UseBlockEvent.Pre>(
         }
     }
 
-    fun getFamilyOwnershipBlockComponent(world: World, pos: Vector3i): FamilyOwnershipBlockComponent?
+    fun getFamilyOwnershipBlockComponent(world: World, pos: Vector3i): FamilyBlockComponent?
     {
         return world.getChunk(ChunkUtil.indexChunkFromBlock(pos.x, pos.z))
             ?.getBlockComponentHolder(pos.x, pos.y, pos.z)
-            ?.getComponent(EmpireComponentRegistry.familyOwnershipBlockComponentType)
+            ?.getComponent(EmpireComponentRegistry.familyBlockComponentType)
     }
 
     override fun getQuery(): Query<EntityStore?>

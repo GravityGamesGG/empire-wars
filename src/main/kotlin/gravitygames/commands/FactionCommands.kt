@@ -10,9 +10,11 @@ import com.hypixel.hytale.server.core.command.system.basecommands.AbstractAsyncP
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.world.World
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
-import gravitygames.Factions
+import gravitygames.Faction
 import gravitygames.PlayerData
 import gravitygames.PlayerStore
+import gravitygames.component.FactionEntityComponent
+import gravitygames.registries.EmpireComponentRegistry
 import java.util.concurrent.CompletableFuture
 
 class JoinFactionCommand : AbstractAsyncPlayerCommand("fjoin", "Join a faction", false)
@@ -37,8 +39,19 @@ class JoinFactionCommand : AbstractAsyncPlayerCommand("fjoin", "Join a faction",
             return CompletableFuture.completedFuture(null)
         }
 
-        val chosenFaction = Factions.entries[faction - 1]
+        val playerFactionComponent = store.getComponent(ref, EmpireComponentRegistry.factionEntityComponentType)
+        if (playerFactionComponent != null)
+        {
+            ctx.sendMessage(Message.raw("You are already in a faction"))
+            return CompletableFuture.completedFuture(null)
+        }
+
+        val chosenFaction = Faction.entries[faction - 1]
+        store.addComponent(
+            ref, EmpireComponentRegistry.factionEntityComponentType, FactionEntityComponent(chosenFaction)
+        )
         PlayerStore[playerRefComponent.uuid] = PlayerData(chosenFaction)
+
         ctx.sendMessage(Message.raw("Joined faction $faction"))
 
         return CompletableFuture.completedFuture(null)
