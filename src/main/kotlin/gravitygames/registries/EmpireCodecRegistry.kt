@@ -1,19 +1,16 @@
 package gravitygames.registries
 
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction
-import com.hypixel.hytale.server.core.plugin.registry.CodecMapRegistry
+import com.hypixel.hytale.server.core.plugin.JavaPlugin
 import gravitygames.Interactions.SpawnGuardArcherInteraction
 import gravitygames.Interactions.TrebuchetProjectileInteraction
 
 object EmpireCodecRegistry
 {
-    fun registerCodecs(codecRegistry: CodecMapRegistry.Assets<Interaction, *>)
+    fun registerCodecs(plugin: JavaPlugin)
     {
-        codecRegistry.register(
-            "TrebuchetProjectile", TrebuchetProjectileInteraction::class.java, TrebuchetProjectileInteraction.CODEC
-        )
-        codecRegistry.register(
-            "SpawnGuardArcher", SpawnGuardArcherInteraction::class.java, SpawnGuardArcherInteraction.CODEC
-        )
+        plugin.getCodecRegistry(Interaction.CODEC)
+            .register("TrebuchetProjectile", TrebuchetProjectileInteraction::class.java, TrebuchetProjectileInteraction.CODEC)
+            .register("SpawnGuardArcher", SpawnGuardArcherInteraction::class.java, SpawnGuardArcherInteraction.CODEC)
     }
 }
