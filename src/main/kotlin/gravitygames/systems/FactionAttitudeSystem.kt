@@ -62,11 +62,13 @@ class FactionAttitudeProvider : IAttitudeProvider
             targetRef, EmpireComponentRegistry.factionEntityComponentType
         ) ?: return null
 
-        return when (targetEntityFactionComponent.faction)
+        val attitude = when (targetEntityFactionComponent.faction)
         {
             sourceEntityFactionComponent.faction -> Attitude.FRIENDLY
             Faction.NONE -> Attitude.NEUTRAL
             else -> Attitude.HOSTILE
         }
+
+        return attitude
     }
 }
