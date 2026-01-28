@@ -1,7 +1,7 @@
 pluginManagement {
     repositories {
-        maven("https://repo.smolder.fr/public/")
         gradlePluginPortal()
+        maven("https://mvn.ultradev.app/snapshots")
     }
 }
 
