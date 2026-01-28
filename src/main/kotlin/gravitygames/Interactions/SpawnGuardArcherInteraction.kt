@@ -13,6 +13,7 @@ import com.hypixel.hytale.server.core.universe.world.World
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
 import com.hypixel.hytale.server.npc.NPCPlugin
 import com.hypixel.hytale.server.npc.role.RoleUtils
+import gravitygames.Empire
 import gravitygames.Faction
 import gravitygames.component.FactionEntityComponent
 import gravitygames.registries.EmpireComponentRegistry
@@ -37,6 +38,7 @@ class SpawnGuardArcherInteraction : SimpleBlockInteraction()
     )
     {
         world.execute {
+            Empire.Logger.atInfo().log("Spawning guard archer")
             val roleIndex = NPCPlugin.get().getIndex("Archer_Guard")
             val entityPosition = blockPosition.toVector3d()
             entityPosition.y += 1.5

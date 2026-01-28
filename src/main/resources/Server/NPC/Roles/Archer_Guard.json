@@ -1,112 +1,97 @@
 {
-  "Type": "Generic",
-  "Appearance": "Mannequin",
-  "HotbarItems": [
-    "Weapon_Shortbow_Crude"
-  ],
-  "MaxHealth": {
-    "Compute": "MaxHealth"
-  },
-  "Parameters": {
+    "Type": "Generic",
+    "Appearance": "Mannequin",
+    "HotbarItems": [
+        "Weapon_Shortbow_Crude"
+    ],
     "MaxHealth": {
-      "Value": 100,
-      "Description": "Max health for the NPC"
+        "Compute": "MaxHealth"
     },
-    "AttackRange": {
-      "Value": 25,
-      "Description": "Range at which the guard will attack hostile targets"
-    },
-    "DetectionRange": {
-      "Value": 30,
-      "Description": "Range at which the guard detects hostile targets"
-    }
-  },
-  "MotionControllerList": [
-    {
-      "Type": "Walk",
-      "MaxWalkSpeed": 4,
-      "Gravity": 10,
-      "MaxFallSpeed": 20,
-      "Acceleration": 10
-    }
-  ],
-  "Instructions": [
-    {
-      "$Comment": "Aim at hostile targets",
-      "Continue": true,
-      "Sensor": {
-        "Type": "Mob",
-        "Range": {
-          "Compute": "DetectionRange"
+    "Parameters": {
+        "MaxHealth": {
+            "Value": 100,
+            "Description": "Max health for the NPC"
         },
-        "GetPlayers": true,
-        "GetNPCs": false,
-        "LockOnTarget": true,
-        "Filters": [
-          {
-            "Type": "Attitude",
-            "Attitudes": [
-              "Hostile"
+        "AttackRange": {
+            "Value": 25,
+            "Description": "Range at which the guard will attack hostile targets"
+        },
+        "DetectionRange": {
+            "Value": 30,
+            "Description": "Range at which the guard detects hostile targets"
+        }
+    },
+    "MotionControllerList": [
+        {
+            "Type": "Walk",
+            "MaxWalkSpeed": 4,
+            "Gravity": 10,
+            "MaxFallSpeed": 20,
+            "Acceleration": 10
+        }
+    ],
+    "Instructions": [
+        {
+            "Sensor": {
+                "Type": "Mob",
+                "Range": 30,
+                "GetPlayers": true,
+                "GetNPCs": false,
+                "LockOnTarget": true,
+                "Filters": [
+                    {
+                        "Type": "Attitude",
+                        "Attitudes": [
+                            "Hostile"
+                        ]
+                    }
+                ]
+            },
+            "Instructions": [
+                {
+                    "Sensor": {
+                        "Type": "Target",
+                        "Range": 30,
+                        "Filters": [
+                            {
+                                "Type": "LineOfSight"
+                            }
+                        ]
+                    },
+                    "HeadMotion": {
+                        "Type": "Aim",
+                        "Spread": 0,
+                        "HitProbability": 1,
+                        "Deflection": true
+                    },
+                    "Actions": [
+                        {
+                            "Type": "Attack",
+                            "Attack": "Skeleton_Archer_Bow_Shoot"
+                        }
+                    ]
+                },
+                {
+                    "Sensor": {
+                        "Type": "Target",
+                        "Range": 30
+                    },
+                    "BodyMotion": {
+                        "Type": "Seek",
+                        "StopDistance": 3,
+                        "UseBestPath": true
+                    }
+                }
             ]
-          },
-          {
-            "Type": "LineOfSight"
-          }
-        ]
-      },
-      "HeadMotion": {
-        "Type": "Aim",
-        "Spread": 0.5,
-        "HitProbability": 1,
-        "Deflection": true
-      },
-      "Actions": [
-        {
-          "Type": "Log",
-          "Message": "Aiming at target"
-        }
-      ]
-    },
-    {
-      "$Comment": "Attack hostile targets in range with bow",
-      "Sensor": {
-        "Type": "Target",
-        "Range": {
-          "Compute": "AttackRange"
         },
-        "Filters": [
-          {
-            "Type": "LineOfSight"
-          }
-        ]
-      },
-      "Actions": [
         {
-          "Type": "Attack",
-          "Attack": "Skeleton_Archer_Bow_Shoot",
-          "BallisticMode": "Short",
-          "AimingTimeRange": [
-            2,
-            3
-          ],
-          "LineOfSight": true,
-          "AvoidFriendlyFire": true,
-          "AttackPauseRange": [
-            1,
-            2
-          ]
+            "Sensor": {
+                "Type": "Any"
+            },
+            "BodyMotion": {
+                "Type": "WanderInCircle"
+            }
         }
-      ]
-    },
-    {
-      "$Comment": "Idle when no hostile targets",
-      "Sensor": {
-        "Type": "Any"
-      },
-      "BodyMotion": {
-        "Type": "Nothing"
-      }
-    }
-  ],
-  "NameTranslationKey": "server.npcRoles.Archer_Guard.name"
+    ],
+    "NameTranslationKey": "server.npcRoles.Archer_Guard.name"
 }
