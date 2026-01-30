@@ -15,7 +15,7 @@ class Empire(@Nonnull init: JavaPluginInit) : JavaPlugin(init)
 {
     companion object
     {
-        val Logger = HytaleLogger.forEnclosingClass()
+        val LOGGER = HytaleLogger.forEnclosingClass()
     }
 
     override fun setup()

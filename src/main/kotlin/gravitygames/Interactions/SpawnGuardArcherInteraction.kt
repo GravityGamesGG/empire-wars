@@ -38,7 +38,7 @@ class SpawnGuardArcherInteraction : SimpleBlockInteraction()
     )
     {
         world.execute {
-            Empire.Logger.atInfo().log("Spawning guard archer")
+            Empire.LOGGER.atInfo().log("Spawning guard archer")
             val roleIndex = NPCPlugin.get().getIndex("Archer_Guard")
             val entityPosition = blockPosition.toVector3d()
             entityPosition.y += 1.5

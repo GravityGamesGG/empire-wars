@@ -19,7 +19,7 @@ object PlayerReadyListener
             if (PlayerStore[playerRefComponent.uuid] == null)
             {
                 PlayerStore[it.uuid] = PlayerData()
-                Empire.Logger.atInfo().log("User ${it.uuid} has been added to the player store")
+                Empire.LOGGER.atInfo().log("User ${it.uuid} has been added to the player store")
             }
         }
     }
