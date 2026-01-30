@@ -1,81 +1,81 @@
 {
-  "Appearance": "Bomb_Large_Fire_Goblin",
-  "MuzzleVelocity": 30,
-  "TerminalVelocity": 80,
-  "Gravity": 8,
-  "Bounciness": 0,
-  "ImpactSlowdown": 0,
-  "TimeToLive": 30,
-  "Damage": 50,
-  "DeadTime": 0,
-  "DeadTimeMiss": 0,
-  "DeathEffectsOnHit": true,
-  "HorizontalCenterShot": 0.5,
-  "VerticalCenterShot": -15,
-  "DepthShot": 2,
-  "PitchAdjustShot": false,
-  "SticksVertically": true,
-  "HitSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
-  "MissSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
-  "DeathSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
-  "HitParticles": {
-    "SystemId": "Explosion_Big"
-  },
-  "DeathParticles": {
-    "SystemId": "Explosion_Big"
-  },
-  "ExplosionConfig": {
-    "DamageEntities": true,
-    "DamageBlocks": true,
-    "BlockDamageRadius": 10,
-    "BlockDropChance": 0.2,
-    "EntityDamage": 40,
-    "EntityDamageRadius": 5,
-    "EntityDamageFalloff": 0.5,
-    "ItemTool": {
-      "Specs": [
-        {
-          "Power": 3,
-          "GatherType": "SoftBlocks"
-        },
-        {
-          "Power": 3,
-          "GatherType": "Soils"
-        },
-        {
-          "Power": 3,
-          "GatherType": "Woods"
-        },
-        {
-          "Power": 3,
-          "GatherType": "Rocks"
-        },
-        {
-          "Power": 3,
-          "GatherType": "Benches"
-        },
-        {
-          "Power": 0.5,
-          "GatherType": "VolcanicRocks"
-        }
-      ]
+    "Appearance": "Bomb_Large_Fire_Goblin",
+    "MuzzleVelocity": 30,
+    "TerminalVelocity": 80,
+    "Gravity": 8,
+    "Bounciness": 0,
+    "ImpactSlowdown": 0,
+    "TimeToLive": 30,
+    "Damage": 50,
+    "DeadTime": 0,
+    "DeadTimeMiss": 0,
+    "DeathEffectsOnHit": true,
+    "HorizontalCenterShot": 0.5,
+    "VerticalCenterShot": -15,
+    "DepthShot": 2,
+    "PitchAdjustShot": false,
+    "SticksVertically": true,
+    "HitSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
+    "MissSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
+    "DeathSoundEventId": "SFX_Bomb_Fire_Goblin_Hit",
+    "HitParticles": {
+        "SystemId": "Explosion_Big"
     },
-    "Knockback": {
-      "Type": "Point",
-      "VelocityConfig": {
-        "AirResistance": 0.97,
-        "AirResistanceMax": 0.96,
-        "Direction": {
-          "X": 0,
-          "Y": 5,
-          "Z": 0
+    "DeathParticles": {
+        "SystemId": "Explosion_Big"
+    },
+    "ExplosionConfig": {
+        "DamageEntities": true,
+        "DamageBlocks": true,
+        "BlockDamageRadius": 10,
+        "BlockDropChance": 0.2,
+        "EntityDamage": 40,
+        "EntityDamageRadius": 5,
+        "EntityDamageFalloff": 0.5,
+        "ItemTool": {
+            "Specs": [
+                {
+                    "Power": 3,
+                    "GatherType": "SoftBlocks"
+                },
+                {
+                    "Power": 3,
+                    "GatherType": "Soils"
+                },
+                {
+                    "Power": 3,
+                    "GatherType": "Woods"
+                },
+                {
+                    "Power": 3,
+                    "GatherType": "Rocks"
+                },
+                {
+                    "Power": 3,
+                    "GatherType": "Benches"
+                },
+                {
+                    "Power": 0.5,
+                    "GatherType": "VolcanicRocks"
+                }
+            ]
         },
-        "GroundResistance": 0.94,
-        "GroundResistanceMax": 0.3,
-        "Threshold": 3
-      },
-      "Force": 8,
-      "VelocityType": "Set"
+        "Knockback": {
+            "Type": "Point",
+            "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "Direction": {
+                    "X": 0,
+                    "Y": 5,
+                    "Z": 0
+                },
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3
+            },
+            "Force": 8,
+            "VelocityType": "Set"
+        }
     }
-  }
 }

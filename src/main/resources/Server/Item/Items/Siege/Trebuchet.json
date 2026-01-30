@@ -1,79 +1,79 @@
 {
-  "TranslationProperties": {
-    "Name": "Trebuchet",
-    "Description": ""
-  },
-  "Recipe": {
-    "Input": [
-      {
-        "Quantity": 4,
-        "ResourceTypeId": "Wood_Trunk"
-      },
-      {
-        "Quantity": 3,
-        "ResourceTypeId": "Rock"
-      }
-    ],
-    "BenchRequirement": [
-      {
-        "Type": "Crafting",
-        "Categories": [
-          "Tools"
+    "TranslationProperties": {
+        "Name": "Trebuchet",
+        "Description": ""
+    },
+    "Recipe": {
+        "Input": [
+            {
+                "Quantity": 4,
+                "ResourceTypeId": "Wood_Trunk"
+            },
+            {
+                "Quantity": 3,
+                "ResourceTypeId": "Rock"
+            }
         ],
-        "Id": "Fieldcraft"
-      }
-    ]
-  },
-  "Icon": "Icons/ItemsGenerated/Trebuchet.png",
-  "PlayerAnimationsId": "Block",
-  "IconProperties": {
-    "Scale": 0.08,
-    "Rotation": [
-      19,
-      57,
-      22.5
-    ],
-    "Translation": [
-      22,
-      -85
-    ]
-  },
-  "MaxStack": 1,
-  "ItemSoundSetId": "ISS_Blocks_Wood",
-  "BlockType": {
-    "Material": "Solid",
-    "DrawType": "Model",
-    "Opacity": "Solid",
-    "CustomModel": "Blocks/Siege/Trebuchet/Trebuchet.blockymodel",
-    "CustomModelTexture": [
-      {
-        "Texture": "Blocks/Siege/Trebuchet/texture.png",
-        "Weight": 1
-      }
-    ],
-    "VariantRotation": "NESW",
-    "BlockParticleSetId": "Wood",
-    "ParticleColor": "#6e4a2f",
-    "Support": {
-      "Down": [
-        {
-          "FaceType": "Full"
-        }
-      ]
+        "BenchRequirement": [
+            {
+                "Type": "Crafting",
+                "Categories": [
+                    "Tools"
+                ],
+                "Id": "Fieldcraft"
+            }
+        ]
     },
-    "BlockSoundSetId": "Wood",
-    "Interactions": {
-      "Use": "Trebuchet_Use"
+    "Icon": "Icons/ItemsGenerated/Trebuchet.png",
+    "PlayerAnimationsId": "Block",
+    "IconProperties": {
+        "Scale": 0.08,
+        "Rotation": [
+            19,
+            57,
+            22.5
+        ],
+        "Translation": [
+            22,
+            -85
+        ]
     },
-    "State": {
-      "Definitions": {
-        "Launch": {
-          "CustomModelAnimation": "Blocks/Siege/Trebuchet/Launch.blockyanim"
+    "MaxStack": 1,
+    "ItemSoundSetId": "ISS_Blocks_Wood",
+    "BlockType": {
+        "Material": "Solid",
+        "DrawType": "Model",
+        "Opacity": "Solid",
+        "CustomModel": "Blocks/Siege/Trebuchet/Trebuchet.blockymodel",
+        "CustomModelTexture": [
+            {
+                "Texture": "Blocks/Siege/Trebuchet/texture.png",
+                "Weight": 1
+            }
+        ],
+        "VariantRotation": "NESW",
+        "BlockParticleSetId": "Wood",
+        "ParticleColor": "#6e4a2f",
+        "Support": {
+            "Down": [
+                {
+                    "FaceType": "Full"
+                }
+            ]
         },
-        "Reset": {
-          "CustomModelAnimation": "Blocks/Siege/Trebuchet/Reset.blockyanim"
+        "BlockSoundSetId": "Wood",
+        "Interactions": {
+            "Use": "Trebuchet_Use"
+        },
+        "State": {
+            "Definitions": {
+                "Launch": {
+                    "CustomModelAnimation": "Blocks/Siege/Trebuchet/Launch.blockyanim"
+                },
+                "Reset": {
+                    "CustomModelAnimation": "Blocks/Siege/Trebuchet/Reset.blockyanim"
+                }
+            }
         }
-      }
     }
-  }
 }

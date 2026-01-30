@@ -4,20 +4,16 @@
     "Version": "1.0-SNAPSHOT",
     "Description": "A persistent war server pack",
     "Authors": [
-        
     ],
     "ServerVersion": "*",
     "Website": "https://my-pack.com",
     "Dependencies": {
-        
     },
     "OptionalDependencies": {
-        
     },
     "DisabledByDefault": false,
     "Main": "gravitygames.Empire",
     "IncludesAssetPack": true,
     "LoadBefore": {
-        
     }
 }

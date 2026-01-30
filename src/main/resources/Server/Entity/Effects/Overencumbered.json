@@ -1,0 +1,9 @@
+{
+    "ApplicationEffects": {
+        "HorizontalSpeedMultiplier": 0.5
+    },
+    "Infinite": true,
+    "Debuff": true,
+    "OverlapBehavior": "Overwrite",
+    "StatusEffectIcon": "UI/StatusEffects/Icon_Slow.png"
+}

@@ -10,7 +10,11 @@ object EmpireCodecRegistry
     fun registerCodecs(plugin: JavaPlugin)
     {
         plugin.getCodecRegistry(Interaction.CODEC)
-            .register("TrebuchetProjectile", TrebuchetProjectileInteraction::class.java, TrebuchetProjectileInteraction.CODEC)
+            .register(
+                "TrebuchetProjectile",
+                TrebuchetProjectileInteraction::class.java,
+                TrebuchetProjectileInteraction.CODEC
+            )
             .register("SpawnGuardArcher", SpawnGuardArcherInteraction::class.java, SpawnGuardArcherInteraction.CODEC)
     }
 }

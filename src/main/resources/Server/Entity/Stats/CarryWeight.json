@@ -1,0 +1,17 @@
+{
+    "InitialValue": 0,
+    "Min": 0,
+    "Max": 100,
+    "Shared": false,
+    "MaxValueEffects": {
+        "TriggerAtZero": false,
+        "Interactions": {
+            "Interactions": [
+                {
+                    "Type": "ApplyEffect",
+                    "EffectId": "Overencumbered"
+                }
+            ]
+        }
+    }
+}

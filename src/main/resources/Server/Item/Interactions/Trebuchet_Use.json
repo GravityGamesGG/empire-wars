@@ -1,24 +1,24 @@
 {
-  "Type": "ChangeState",
-  "Changes": {
-    "default": "Launch"
-  },
-  "Next": {
-    "Type": "Simple",
-    "RunTime": 0.45,
+    "Type": "ChangeState",
+    "Changes": {
+        "default": "Launch"
+    },
     "Next": {
-      "Type": "TrebuchetProjectile",
-      "ProjectileId": "Trebuchet_Projectile",
-      "Next": {
         "Type": "Simple",
-        "RunTime": 1.55,
+        "RunTime": 0.45,
         "Next": {
-          "Type": "ChangeState",
-          "Changes": {
-            "Launch": "default"
-          }
+            "Type": "TrebuchetProjectile",
+            "ProjectileId": "Trebuchet_Projectile",
+            "Next": {
+                "Type": "Simple",
+                "RunTime": 1.55,
+                "Next": {
+                    "Type": "ChangeState",
+                    "Changes": {
+                        "Launch": "default"
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
